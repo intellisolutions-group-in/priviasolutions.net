@@ -21,7 +21,7 @@ export default function BlogHub() {
     const post = blogData[slug];
     const cat = post.category.toUpperCase().replace(/\s/g, "");
     const selected = selectedCategory.toUpperCase().replace(/\s/g, "");
-    
+
     // Custom mappings to match filter clicks
     if (selected === "SECURITY") return cat.includes("SECURITY") || cat.includes("DEVOPS");
     if (selected === "DEVOPS") return cat.includes("DEVOPS") || cat.includes("CLOUD");
@@ -29,7 +29,7 @@ export default function BlogHub() {
     if (selected === "AI&AUTOMATION") return cat.includes("AI") || cat.includes("AUTOMATION");
     if (selected === "OBSERVABILITY") return cat.includes("OBSERVABILITY");
     if (selected === "TRENDING") return slug.includes("optimization") || slug.includes("microservices");
-    
+
     return cat.includes(selected);
   });
 
@@ -45,7 +45,7 @@ export default function BlogHub() {
 
   return (
     <div className="relative py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10 bg-slate-50/30">
-      
+
       {/* Background radial glow */}
       <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-[140px] pointer-events-none -z-10"></div>
 
@@ -60,10 +60,7 @@ export default function BlogHub() {
           <span className="leading-relaxed">
             Guides, best practices, and insights regarding software engineering, automated DevOps, and security structures.
           </span>
-          <div className="flex items-center space-x-1 mt-2 sm:mt-0 font-bold text-slate-900 shrink-0">
-            <span>NOVEMBER 15, 2024</span>
-            <ArrowRight className="w-3.5 h-3.5 text-purple-700" />
-          </div>
+
         </div>
       </div>
 
@@ -89,7 +86,7 @@ export default function BlogHub() {
               {featuredPost.summary}
             </p>
             <div className="pt-2">
-              <Link 
+              <Link
                 href={`/blog/${featuredSlug}`}
                 className="inline-flex items-center justify-center px-5 py-3 rounded-lg font-black text-white bg-purple-700 hover:bg-purple-800 transition-all text-xs shadow-md uppercase tracking-wider"
               >
@@ -98,12 +95,12 @@ export default function BlogHub() {
               </Link>
             </div>
           </div>
-          
+
           {/* Featured Image */}
           <div className="lg:col-span-7">
             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-slate-200/60 bg-slate-100 shadow-sm group">
-              <img 
-                src={featuredPost.image} 
+              <img
+                src={featuredPost.image}
                 alt={featuredPost.title}
                 className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700"
               />
@@ -112,44 +109,19 @@ export default function BlogHub() {
         </div>
       )}
 
-      {/* 3. Category Navigation Bar */}
-      <div className="border-t border-b border-slate-200 py-3 flex items-center justify-between overflow-x-auto whitespace-nowrap scrollbar-none">
-        <div className="flex items-center space-x-6 sm:space-x-8 text-xs font-extrabold tracking-wider">
-          {categories.map((cat) => {
-            const isActive = selectedCategory === cat;
-            return (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`transition-all pb-1 uppercase ${
-                  isActive 
-                    ? "text-purple-700 border-b-2 border-purple-700" 
-                    : "text-slate-400 hover:text-slate-900"
-                }`}
-              >
-                {cat}
-              </button>
-            );
-          })}
-        </div>
-        <div className="hidden md:block pl-4 text-slate-500 cursor-pointer hover:text-slate-900">
-          <Menu className="w-4 h-4" />
-        </div>
-      </div>
-
       {/* 4. Grid of Horizontal Cards */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-8 pt-4">
         {filteredGridSlugs.map((slug) => {
           const post = blogData[slug];
           return (
-            <div 
-              key={slug} 
+            <div
+              key={slug}
               className="flex flex-col sm:flex-row gap-6 p-4 rounded-xl border border-slate-200/40 bg-white/40 hover:bg-white/90 hover:border-slate-200/80 hover:shadow-md transition-all duration-300 group"
             >
               {/* Image Column */}
               <div className="w-full sm:w-40 h-40 shrink-0 overflow-hidden rounded-xl bg-slate-100 border border-slate-200/40">
-                <img 
-                  src={post.image} 
+                <img
+                  src={post.image}
                   alt={post.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -158,9 +130,7 @@ export default function BlogHub() {
               {/* Text Column */}
               <div className="flex-1 flex flex-col justify-between space-y-2">
                 <div className="space-y-2">
-                  <div className="flex items-center justify-between text-[11px] font-bold text-slate-400">
-                    <span>{post.readTime} &nbsp;•&nbsp; {post.date}</span>
-                  </div>
+
                   <h3 className="text-base sm:text-lg font-extrabold text-slate-900 group-hover:text-purple-700 transition-colors line-clamp-2 leading-snug">
                     <Link href={`/blog/${slug}`}>
                       {post.title}
@@ -175,7 +145,7 @@ export default function BlogHub() {
                 </div>
 
                 <div className="pt-2">
-                  <Link 
+                  <Link
                     href={`/blog/${slug}`}
                     className="inline-flex items-center text-xs font-bold text-purple-700 hover:text-purple-800 transition-colors"
                   >
@@ -206,9 +176,9 @@ export default function BlogHub() {
         </div>
 
         <div className="flex w-full lg:w-auto items-center space-x-2">
-          <input 
-            type="email" 
-            placeholder="Enter your email" 
+          <input
+            type="email"
+            placeholder="Enter your email"
             className="flex-1 lg:w-64 px-4 py-2.5 rounded-lg border border-purple-200 focus:outline-none focus:ring-2 focus:ring-purple-500 text-xs font-medium"
           />
           <button className="px-5 py-2.5 bg-purple-700 hover:bg-purple-800 text-white font-black text-xs uppercase tracking-wider rounded-lg shadow-sm">

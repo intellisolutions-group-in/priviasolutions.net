@@ -2,9 +2,9 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { 
-  ArrowLeft, ArrowRight, Calendar, User, Clock, 
-  Share2, Link2, Mail, Shield, Check, 
+import {
+  ArrowLeft, ArrowRight, Calendar, User, Clock,
+  Share2, Link2, Mail, Shield, Check,
   ChevronDown, ChevronUp, Terminal, Activity, AlertCircle,
   ExternalLink, Search, Sparkles
 } from "lucide-react";
@@ -94,10 +94,10 @@ function getToolLogo(name, provider) {
   }
   // Prometheus / CNCF / Jaeger / OpenTelemetry / Istio
   if (
-    providerLower.includes("cncf") || 
-    nameLower.includes("prometheus") || 
-    nameLower.includes("jaeger") || 
-    nameLower.includes("opentelemetry") || 
+    providerLower.includes("cncf") ||
+    nameLower.includes("prometheus") ||
+    nameLower.includes("jaeger") ||
+    nameLower.includes("opentelemetry") ||
     nameLower.includes("istio")
   ) {
     return (
@@ -290,7 +290,7 @@ export default function BlogPostClient({ post, slug, allBlogs }) {
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
-    
+
     // Observe sections
     if (post.sections) {
       post.sections.forEach((sec) => {
@@ -342,11 +342,11 @@ export default function BlogPostClient({ post, slug, allBlogs }) {
 
   return (
     <div className="min-h-screen bg-slate-50/50 text-slate-850 font-sans pb-20 w-full max-w-full overflow-x-hidden">
-      
+
       {/* Pinned Reading Progress Bar */}
       <div className="fixed top-0 left-0 w-full h-[3px] bg-slate-100 z-50">
-        <div 
-          className="h-full bg-blue-600 transition-all duration-150 ease-out" 
+        <div
+          className="h-full bg-blue-600 transition-all duration-150 ease-out"
           style={{ width: `${scrollProgress}%` }}
         />
         <div className="absolute top-[3px] left-4 bg-slate-900 text-white text-[9px] font-mono px-2 py-0.5 rounded-b shadow-sm pointer-events-none">
@@ -369,7 +369,7 @@ export default function BlogPostClient({ post, slug, allBlogs }) {
 
       {/* Main Layout Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 pt-6 relative min-w-0">
-        
+
         {/* ================= LEFT SIDEBAR ================= */}
         <aside className="hidden lg:block lg:col-span-3 space-y-8 sticky top-12 self-start h-[calc(100vh-100px)] overflow-y-auto pr-4 scrollbar-thin">
           <div className="space-y-4">
@@ -385,11 +385,10 @@ export default function BlogPostClient({ post, slug, allBlogs }) {
                       e.preventDefault();
                       document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" });
                     }}
-                    className={`block pl-4 text-xs font-bold transition-all relative -left-[2px] border-l-2 ${
-                      isActive 
-                        ? "text-blue-600 border-blue-600 font-extrabold" 
-                        : "text-slate-400 hover:text-slate-800 border-transparent"
-                    }`}
+                    className={`block pl-4 text-xs font-bold transition-all relative -left-[2px] border-l-2 ${isActive
+                      ? "text-blue-600 border-blue-600 font-extrabold"
+                      : "text-slate-400 hover:text-slate-800 border-transparent"
+                      }`}
                   >
                     {item.label}
                   </a>
@@ -411,8 +410,8 @@ export default function BlogPostClient({ post, slug, allBlogs }) {
                 Practical guides and deep insights for modern engineering teams.
               </p>
             </div>
-            <Link 
-              href="/contact" 
+            <Link
+              href="/contact"
               className="inline-flex items-center text-[10px] font-black uppercase tracking-wider text-blue-400 hover:text-blue-300 transition-colors"
             >
               Explore More
@@ -423,7 +422,7 @@ export default function BlogPostClient({ post, slug, allBlogs }) {
 
         {/* ================= CENTER MAIN ARTICLE ================= */}
         <main className="col-span-1 lg:col-span-6 space-y-12 min-w-0">
-          
+
           {/* Article Header block */}
           <div className="space-y-6">
             <span className="inline-block px-3 py-1 text-[10px] font-black tracking-widest text-blue-700 bg-blue-100 rounded-md uppercase">
@@ -437,14 +436,7 @@ export default function BlogPostClient({ post, slug, allBlogs }) {
             </p>
 
             <div className="flex flex-wrap items-center gap-6 text-xs text-slate-400 border-y border-slate-200/80 py-4 font-mono">
-              <div className="flex items-center space-x-1.5">
-                <User className="w-3.5 h-3.5 text-blue-600" />
-                <span>By {post.author}</span>
-              </div>
-              <div className="flex items-center space-x-1.5">
-                <Calendar className="w-3.5 h-3.5 text-blue-600" />
-                <span>{post.date}</span>
-              </div>
+
               <div className="flex items-center space-x-1.5">
                 <Clock className="w-3.5 h-3.5 text-blue-600" />
                 <span>{post.readTime}</span>
@@ -454,8 +446,8 @@ export default function BlogPostClient({ post, slug, allBlogs }) {
 
           {/* Large illustration layout wrapper */}
           <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm">
-            <img 
-              src={post.image} 
+            <img
+              src={post.image}
               alt={post.title}
               className="w-full h-full object-cover"
             />
@@ -464,7 +456,7 @@ export default function BlogPostClient({ post, slug, allBlogs }) {
           {/* Sections Render Loop */}
           <div className="space-y-12 text-slate-700 text-sm sm:text-base leading-relaxed font-sans">
             {post.sections && post.sections.map((sec, secIdx) => {
-              
+
               return (
                 <div key={sec.id} id={sec.id} className="space-y-4 pt-4 scroll-mt-20">
                   <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight border-b border-slate-200/80 pb-2">
@@ -516,8 +508,8 @@ export default function BlogPostClient({ post, slug, allBlogs }) {
                       {sec.guardrails.map((gr) => {
                         const isExpanded = expandedGuardrails[gr.num];
                         return (
-                          <div 
-                            key={gr.num} 
+                          <div
+                            key={gr.num}
                             className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden"
                           >
                             <button
@@ -577,12 +569,12 @@ export default function BlogPostClient({ post, slug, allBlogs }) {
                                       {/* Target Budget Line */}
                                       <line x1="0" y1="40" x2="200" y2="40" stroke="#ef4444" strokeWidth="1" strokeDasharray="4 2" />
                                       <text x="5" y="36" className="fill-red-400 text-[7px]">BUDGET LIMIT ($50K)</text>
-                                      
+
                                       {/* Fill Path */}
                                       <path d="M 0,80 Q 50,75 100,55 T 200,45 L 200,80 L 0,80 Z" fill="url(#gradient-spend)" />
                                       {/* Spend Line */}
                                       <path d="M 0,80 Q 50,75 100,55 T 200,45" fill="none" stroke="#3b82f6" strokeWidth="2" />
-                                      
+
                                       <circle cx="100" cy="55" r="3" className="fill-blue-400" />
                                       <text x="110" y="55" className="fill-white text-[8px] font-bold">$32,450</text>
                                     </svg>
@@ -622,7 +614,7 @@ export default function BlogPostClient({ post, slug, allBlogs }) {
                   {sec.tools && (
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 my-6">
                       {sec.tools.map((t) => (
-                        <div 
+                        <div
                           key={t.name}
                           className="p-4 rounded-xl border border-slate-200 bg-white flex flex-col justify-between items-center text-center shadow-sm select-none"
                         >
@@ -667,7 +659,7 @@ export default function BlogPostClient({ post, slug, allBlogs }) {
           {/* Bottom Pagination Links */}
           <div className="flex justify-between items-center border-t border-slate-200 pt-8 mt-12 font-sans min-w-0 w-full">
             {prevSlug ? (
-              <Link 
+              <Link
                 href={`/blog/${prevSlug}`}
                 className="text-left group select-none flex-1 max-w-[45%] min-w-0"
               >
@@ -691,7 +683,7 @@ export default function BlogPostClient({ post, slug, allBlogs }) {
             </Link>
 
             {nextSlug ? (
-              <Link 
+              <Link
                 href={`/blog/${nextSlug}`}
                 className="text-right group select-none flex-1 max-w-[45%] min-w-0"
               >
@@ -710,58 +702,8 @@ export default function BlogPostClient({ post, slug, allBlogs }) {
 
         {/* ================= RIGHT SIDEBAR ================= */}
         <aside className="hidden lg:block lg:col-span-3 space-y-8 sticky top-12 self-start h-[calc(100vh-100px)] overflow-y-auto pr-2 scrollbar-thin">
-          
-          {/* Share Article Widget */}
-          <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
-            <h4 className="text-[10px] font-black tracking-widest text-slate-400 uppercase border-b border-slate-100 pb-2 text-center">
-              Share This Article
-            </h4>
-            <div className="flex justify-around items-center gap-2">
-              <button 
-                onClick={handleCopyLink}
-                className="p-3 bg-slate-50 hover:bg-blue-50 hover:text-blue-600 rounded-xl border border-slate-200/60 transition-all text-slate-500 flex items-center justify-center relative"
-                title="Copy Link"
-              >
-                {copied ? <Check className="w-4 h-4 text-emerald-500" /> : <Link2 className="w-4 h-4" />}
-                {copied && (
-                  <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[8px] font-mono px-1.5 py-0.5 rounded shadow whitespace-nowrap">
-                    Copied!
-                  </span>
-                )}
-              </button>
-              <a 
-                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 bg-slate-50 hover:bg-blue-50 hover:text-blue-600 rounded-xl border border-slate-200/60 transition-all text-slate-500 flex items-center justify-center"
-                title="Share on Twitter"
-              >
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
-                </svg>
-              </a>
-              <a 
-                href={`https://www.linkedin.com/shareArticle?mini=true&title=${encodeURIComponent(post.title)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 bg-slate-50 hover:bg-blue-50 hover:text-blue-600 rounded-xl border border-slate-200/60 transition-all text-slate-500 flex items-center justify-center"
-                title="Share on LinkedIn"
-              >
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                  <rect x="2" y="9" width="4" height="12" />
-                  <circle cx="4" cy="4" r="2" />
-                </svg>
-              </a>
-              <a 
-                href={`mailto:?subject=${encodeURIComponent(post.title)}`}
-                className="p-3 bg-slate-50 hover:bg-blue-50 hover:text-blue-600 rounded-xl border border-slate-200/60 transition-all text-slate-500 flex items-center justify-center"
-                title="Share via Email"
-              >
-                <Mail className="w-4 h-4" />
-              </a>
-            </div>
-          </div>
+
+
 
           {/* Sticky updates widget */}
           <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
@@ -772,15 +714,15 @@ export default function BlogPostClient({ post, slug, allBlogs }) {
               Get the latest engineering insights and best practices.
             </p>
             <form onSubmit={handleSubscribe} className="space-y-3">
-              <input 
-                type="email" 
+              <input
+                type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email" 
+                placeholder="Enter your email"
                 className="w-full px-3 py-2 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs text-slate-700"
               />
-              <button 
+              <button
                 type="submit"
                 className="w-full py-2 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-black uppercase tracking-wider rounded-lg shadow-sm transition-all"
               >
@@ -799,8 +741,8 @@ export default function BlogPostClient({ post, slug, allBlogs }) {
           <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
             Continue Reading
           </h3>
-          <Link 
-            href="/blog" 
+          <Link
+            href="/blog"
             className="inline-flex items-center text-xs font-bold text-blue-600 hover:text-blue-700 transition-colors"
           >
             View All Posts
@@ -810,15 +752,15 @@ export default function BlogPostClient({ post, slug, allBlogs }) {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {relatedPosts.map((rPost) => (
-            <div 
-              key={rPost.slug} 
+            <div
+              key={rPost.slug}
               className="rounded-2xl border border-slate-200 bg-white hover:shadow-lg transition-all duration-300 overflow-hidden group hover:-translate-y-1 flex flex-col h-full"
             >
               {/* Image */}
               <div className="relative h-48 w-full overflow-hidden bg-slate-100 border-b border-slate-100">
-                <img 
-                  src={rPost.image} 
-                  alt={rPost.title} 
+                <img
+                  src={rPost.image}
+                  alt={rPost.title}
                   className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
                 />
                 <span className="absolute top-4 right-4 px-2.5 py-1 text-[9px] font-black uppercase tracking-wider rounded bg-white/90 backdrop-blur text-blue-700 border border-slate-100 shadow-sm">
@@ -831,7 +773,6 @@ export default function BlogPostClient({ post, slug, allBlogs }) {
                 <div className="space-y-2">
                   <div className="flex items-center justify-between text-[10px] text-slate-400 font-mono">
                     <span>{rPost.readTime}</span>
-                    <span>{rPost.date}</span>
                   </div>
                   <h4 className="text-base font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug">
                     <Link href={`/blog/${rPost.slug}`}>
@@ -847,7 +788,7 @@ export default function BlogPostClient({ post, slug, allBlogs }) {
                 </div>
 
                 <div className="border-t border-slate-100 pt-4 mt-auto">
-                  <Link 
+                  <Link
                     href={`/blog/${rPost.slug}`}
                     className="inline-flex items-center text-xs font-bold text-blue-600 hover:text-blue-700 transition-colors"
                   >
