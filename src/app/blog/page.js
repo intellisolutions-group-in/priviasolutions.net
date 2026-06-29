@@ -79,8 +79,7 @@ export default function BlogHub() {
             </h2>
             <div className="flex items-center space-x-2 text-xs font-bold text-slate-400">
               <span>{featuredPost.readTime}</span>
-              <span>•</span>
-              <span>By {featuredPost.author}</span>
+
             </div>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
               {featuredPost.summary}
@@ -136,9 +135,7 @@ export default function BlogHub() {
                       {post.title}
                     </Link>
                   </h3>
-                  <p className="text-[10px] font-black text-slate-400 uppercase">
-                    By {post.author}
-                  </p>
+
                   <p className="text-xs text-slate-500 leading-relaxed line-clamp-2">
                     {post.summary}
                   </p>

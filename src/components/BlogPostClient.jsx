@@ -779,9 +779,7 @@ export default function BlogPostClient({ post, slug, allBlogs }) {
                       {rPost.title}
                     </Link>
                   </h4>
-                  <p className="text-[10px] font-black text-slate-400 uppercase">
-                    By {rPost.author}
-                  </p>
+
                   <p className="text-xs text-slate-500 leading-relaxed line-clamp-2">
                     {rPost.summary}
                   </p>
