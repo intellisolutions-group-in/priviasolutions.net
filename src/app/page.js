@@ -873,34 +873,24 @@ export default function Home() {
             </div>
 
             {/* Trust metrics row to match image mockup */}
-            <div className="pt-8 border-t border-slate-200/60 w-full grid grid-cols-3 gap-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-emerald-50 text-emerald-500 border border-emerald-100 flex items-center justify-center flex-shrink-0 shadow-inner">
-                  <ShieldCheck className="w-5 h-5" />
+            <div className="pt-8 border-t border-slate-200/60 w-full flex flex-row flex-wrap justify-center sm:grid sm:grid-cols-2 gap-y-3 gap-x-6 sm:gap-4">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-emerald-50 text-emerald-500 border border-emerald-100 flex items-center justify-center flex-shrink-0 shadow-inner">
+                  <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div className="text-left">
-                  <span className="text-[10px] font-mono text-slate-800 block font-bold leading-none mb-1">Fully Secure</span>
-                  <span className="text-[9px] font-medium text-slate-400">Environment</span>
+                  <span className="text-[8px] min-[360px]:text-[9px] sm:text-[10px] font-mono text-slate-800 block font-bold leading-none mb-1">Fully Secure</span>
+                  <span className="text-[8px] sm:text-[9px] font-medium text-slate-400 leading-none">Environment</span>
                 </div>
               </div>
               
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-blue-50 text-blue-500 border border-blue-100 flex items-center justify-center flex-shrink-0 shadow-inner">
-                  <Clock className="w-5 h-5" />
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-blue-50 text-blue-500 border border-blue-100 flex items-center justify-center flex-shrink-0 shadow-inner">
+                  <Clock className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div className="text-left">
-                  <span className="text-[10px] font-mono text-slate-800 block font-bold leading-none mb-1">99.99% SLA</span>
-                  <span className="text-[9px] font-medium text-slate-400">Uptime</span>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-purple-50 text-purple-500 border border-purple-100 flex items-center justify-center flex-shrink-0 shadow-inner">
-                  <Activity className="w-5 h-5" />
-                </div>
-                <div className="text-left">
-                  <span className="text-[10px] font-mono text-slate-800 block font-bold leading-none mb-1">24/7 Monitoring</span>
-                  <span className="text-[9px] font-medium text-slate-400">SRE Team</span>
+                  <span className="text-[8px] min-[360px]:text-[9px] sm:text-[10px] font-mono text-slate-800 block font-bold leading-none mb-1">99.99% SLA</span>
+                  <span className="text-[8px] sm:text-[9px] font-medium text-slate-400 leading-none">Uptime</span>
                 </div>
               </div>
             </div>

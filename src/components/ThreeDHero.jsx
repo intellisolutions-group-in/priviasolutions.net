@@ -187,7 +187,7 @@ export default function ThreeDHero({ isLoaded = true }) {
       icon: Brain,
       color: "text-emerald-600 bg-gradient-to-br from-emerald-500/10 to-emerald-500/20 border-emerald-500/20 shadow-inner",
       hoverGlow: "hover:border-emerald-400 hover:shadow-[0_12px_30px_rgba(16,185,129,0.18)]",
-      position: "absolute top-[20%] right-[-5%] sm:right-[5%] md:right-[-2%]",
+      position: "absolute top-[18%] right-[2%] sm:right-[5%] md:right-[-2%]",
       animationDelay: 0.2
     },
     {
@@ -197,7 +197,7 @@ export default function ThreeDHero({ isLoaded = true }) {
       icon: Shield,
       color: "text-indigo-600 bg-gradient-to-br from-indigo-500/10 to-indigo-500/20 border-indigo-500/20 shadow-inner",
       hoverGlow: "hover:border-indigo-400 hover:shadow-[0_12px_30px_rgba(79,70,229,0.18)]",
-      position: "absolute bottom-[20%] right-[-10%] sm:right-[0%] md:right-[-5%]",
+      position: "absolute bottom-[18%] right-[1%] sm:right-[0%] md:right-[-5%]",
       animationDelay: 0.3
     },
     {
@@ -217,7 +217,7 @@ export default function ThreeDHero({ isLoaded = true }) {
       icon: Terminal,
       color: "text-cyan-600 bg-gradient-to-br from-cyan-500/10 to-cyan-500/20 border-cyan-500/20 shadow-inner",
       hoverGlow: "hover:border-cyan-400 hover:shadow-[0_12px_30px_rgba(6,182,212,0.18)]",
-      position: "absolute bottom-[20%] left-[-10%] sm:left-[0%] md:left-[-5%]",
+      position: "absolute bottom-[18%] left-[1%] sm:left-[0%] md:left-[-5%]",
       animationDelay: 0.5
     },
     {
@@ -227,13 +227,13 @@ export default function ThreeDHero({ isLoaded = true }) {
       icon: Database,
       color: "text-purple-600 bg-gradient-to-br from-purple-500/10 to-purple-500/20 border-purple-500/20 shadow-inner",
       hoverGlow: "hover:border-purple-400 hover:shadow-[0_12px_30px_rgba(147,51,234,0.18)]",
-      position: "absolute top-[20%] left-[-5%] sm:left-[5%] md:left-[-2%]",
+      position: "absolute top-[18%] left-[2%] sm:left-[5%] md:left-[-2%]",
       animationDelay: 0.6
     }
   ];
 
   return (
-    <div ref={containerRef} className="relative w-full aspect-square max-w-[480px] mx-auto flex items-center justify-center select-none pt-4 pb-4">
+    <div ref={containerRef} className="relative w-full aspect-square max-w-[480px] mx-auto flex items-center justify-center select-none py-12 sm:py-4">
       {/* Concentric CSS Orbit Rings in Background (faded in when loaded) */}
       <div className={`absolute inset-2 rounded-full border border-blue-200/40 border-dashed animate-[spin_45s_linear_infinite] pointer-events-none z-0 transition-opacity duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}></div>
       <div className={`absolute inset-12 rounded-full border border-blue-300/30 border-dashed animate-[spin_30s_linear_infinite_reverse] pointer-events-none z-0 transition-opacity duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}></div>
@@ -285,25 +285,25 @@ export default function ThreeDHero({ isLoaded = true }) {
             onMouseLeave={() => setHoveredNode(null)}
           >
             <motion.div
-              className={`flex items-center gap-3.5 p-3.5 sm:p-4 bg-white/80 backdrop-blur-lg border rounded-[22px] cursor-pointer transition-all duration-300 w-[155px] sm:w-[195px] shadow-[0_10px_25px_rgba(30,41,59,0.04)] ${
+              className={`flex items-center gap-2 p-2 sm:gap-3.5 sm:p-4 bg-white/80 backdrop-blur-lg border rounded-[22px] cursor-pointer transition-all duration-300 w-[130px] min-[400px]:w-[145px] sm:w-[195px] shadow-[0_10px_25px_rgba(30,41,59,0.04)] ${
                 isHovered 
                   ? `${node.hoverGlow} scale-105 -translate-y-1` 
                   : "border-white/50"
               }`}
             >
               {/* Icon */}
-              <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-xl border flex items-center justify-center flex-shrink-0 transition-all ${
+              <div className={`w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl border flex items-center justify-center flex-shrink-0 transition-all ${
                 isHovered ? "scale-110 rotate-3" : ""
               } ${node.color}`}>
-                <IconComponent className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
+                <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
 
               {/* Text metadata */}
-              <div className="text-left overflow-hidden">
-                <h4 className="text-[9.5px] sm:text-[11.5px] font-black uppercase tracking-tight text-slate-800 leading-none truncate">
+              <div className="text-left overflow-hidden min-w-0 flex-1">
+                <h4 className="text-[9px] sm:text-[11.5px] font-black uppercase tracking-tight text-slate-800 leading-tight whitespace-normal">
                   {node.title}
                 </h4>
-                <p className="text-[8px] sm:text-[9.5px] font-bold text-slate-400 mt-1.5 tracking-wider uppercase leading-none truncate">
+                <p className="text-[7.5px] sm:text-[9.5px] font-bold text-slate-400 mt-1 tracking-wider uppercase leading-tight whitespace-normal">
                   {node.desc}
                 </p>
               </div>

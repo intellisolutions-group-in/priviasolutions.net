@@ -99,7 +99,6 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h4 className="text-xs font-black text-white uppercase tracking-wider font-mono">Quick Response</h4>
-                  <p className="text-[10.5px] text-slate-400 font-semibold mt-0.5">We reply within 24 business hours</p>
                 </div>
               </div>
 
@@ -278,8 +277,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest font-mono">Email Us</h4>
-                    <a href="mailto:info.priviasolutions.net" className="text-xs font-bold text-slate-700 hover:text-blue-600 transition-colors block mt-0.5">
-                      info.priviasolutions.net
+                    <a href="mailto:info@priviasolutions.net" className="text-xs font-bold text-slate-700 hover:text-blue-600 transition-colors block mt-0.5">
+                      info@priviasolutions.net
                     </a>
                   </div>
                 </div>
@@ -307,9 +306,6 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h4 className="text-sm font-black text-slate-800 tracking-tight font-outfit">Need Immediate Assistance?</h4>
-                  <p className="text-xs text-slate-500 font-semibold leading-relaxed mt-1">
-                    Our support team is available 24/7 to help with your urgent needs.
-                  </p>
                 </div>
               </div>
               
